@@ -15,7 +15,9 @@ apiClient.interceptors.request.use((config) => {
   return config;
 });
 
-export const loginUser = (credentials) => apiClient.post('/auth/login', credentials);
-export const signupUser = (data) => apiClient.post('/auth/signup', data);
+// If `VITE_API_BASE_URL` already points at `/api/auth` (as in your `.env`),
+// the client should POST to `/login` and `/signup` (not `/auth/login`).
+export const loginUser = (credentials) => apiClient.post('/login', credentials);
+export const signupUser = (data) => apiClient.post('/signup', data);
 
 export default apiClient;
